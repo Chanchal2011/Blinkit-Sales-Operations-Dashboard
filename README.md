@@ -279,16 +279,16 @@ The following screenshots are included in the `Screenshots/` folder.
 
 ### 🏠 Overview
 
-![Blinkit Overview](Sceenshots/Overview.png)
+![Blinkit Overview](Screenshots/Overview.png)
 
 ### 🛍️ Product & Outlet Analysis
 
 ![Product & Outlet
-Analysis](Sceenshots/Product%20%26%20Outlet%20Analysis.png)
+Analysis](Screenshots/Product%20%26%20Outlet%20Analysis.png)
 
 ### 🏪 Outlet Performance
 
-![Outlet Performance](Sceenshots/Outlet%20Performance.png)
+![Outlet Performance](Screenshots/Outlet%20Performance.png)
 
 ## 🚀 How to Use
 
