@@ -1,259 +1,310 @@
+
 # 🛒 Blinkit Sales & Operations Dashboard
 
-**Interactive Business Intelligence Dashboard \| Power BI • DAX • Data
-Visualization**
+**Interactive Business Intelligence Dashboard | Power BI • DAX • Data Visualization**
 
-An interactive Power BI project analyzing Blinkit's sales, product
-categories, and outlet performance through KPI cards, sales trends,
-category comparisons, outlet-size analysis, ratings, and location-tier
-distribution.
+An interactive Power BI project designed to analyze Blinkit's sales performance, product categories, outlet operations, ratings, and location-tier distribution. This project includes three interactive dashboard pages with KPI cards, charts, tables, and slicers for business analysis.
 
-------------------------------------------------------------------------
+---
 
 ## 📌 Project Overview
 
-This project uses Microsoft Power BI to explore grocery sales and outlet
-performance through an interactive three-page dashboard.
+The objective of this project is to transform grocery sales data into meaningful business insights using Microsoft Power BI.
 
-The report helps explore questions such as:
+The dashboard helps explore the following business questions:
 
--   💰 What are the overall sales and average ratings?
--   🏪 How do outlets compare by type, size, and identifier?
--   🥦 Which item categories contribute the most sales?
--   ⭐ How do ratings vary across outlet types?
--   📍 How are sales distributed across location tiers?
--   🥛 How does sales performance vary by fat content?
--   👁️ What is the relationship between item visibility and sales?
+- 💰 What is the overall sales performance?
+- ⭐ What is the average rating?
+- 🏪 How do outlets perform across different outlet types and sizes?
+- 🥦 Which product categories generate higher sales?
+- 📈 How do sales change by outlet establishment year?
+- 📍 How are sales distributed across location tiers?
+- 👁️ What is the relationship between item visibility and sales?
+- 🥛 How do sales vary by fat content?
+
+## 📊 Key Performance Indicators (KPIs)
+
+| KPI | Description |
+|---|---|
+| Total Sales | Total sales value under the selected filters |
+| Average Rating | Average rating across the selected records |
+| Total Outlets | Number of distinct outlets |
+| Total Items | Item count based on the report measure |
+| Total Categories | Number of distinct item categories |
+| Average Visibility | Average item visibility |
+| Average Item Weight | Average product weight |
+
+*Note: KPI values may change when interactive slicers are applied.*
+
+---
 
 ## 🖥️ Dashboard Pages
 
-### 1️⃣ Overview
+### 1. Overview
 
-**Objective:** Summarize overall sales and outlet performance.
+**Objective:** Provide an executive summary of sales and outlet performance.
 
--   Total Sales
--   Average Rating
--   Total Outlets
--   Total Items
--   Total Categories
--   Sales trends by outlet establishment year
--   Sales by outlet type and item category
--   Top items by sales and average rating
--   Sales distribution by location tier
+**Key Visualizations:**
+- Sales Trends by Establishment Year
+- Sales by Outlet Type
+- Sales by Item Category
+- Top 5 Items by Sales and Average Rating
+- Sales Distribution by Location Tier
 
-### 2️⃣ Product & Outlet Analysis
+**Key KPIs:**
+- Total Sales
+- Average Rating
+- Total Outlets
+- Total Items
+- Total Categories
 
-**Objective:** Explore product attributes and compare sales across
-outlet characteristics.
+### 2. Product & Outlet Analysis
 
--   Sales versus item visibility
--   Sales by outlet size
--   Sales by item type
--   Sales versus rating
--   Sales distribution by fat content
--   Filters for year/date, outlet type, location tier, outlet size, and
-    fat content
+**Objective:** Analyze product attributes and sales performance across outlet characteristics.
 
-### 3️⃣ Outlet Performance
+**Key Visualizations:**
+- Sales vs. Item Visibility
+- Sales by Outlet Size
+- Sales by Item Category
+- Sales vs. Rating
+- Sales Distribution by Fat Content
 
-**Objective:** Compare outlet-level sales, ratings, visibility, and item
-counts.
+**Interactive Filters:**
+- Year / Date
+- Outlet Type
+- Location Tier
+- Outlet Size
+- Fat Content
 
--   Sales by outlet establishment year
--   Average rating by outlet type
--   Top outlets by total sales
--   Outlet performance summary table
--   Comparison of average rating, average sales, total sales, total
-    items, and average visibility
+### 3. Outlet Performance
 
-## 📊 Key KPIs
+**Objective:** Compare outlet-level sales, ratings, and operational metrics.
 
-  KPI                          Description
-  ---------------------------- ----------------------------------------------
-  💰 Total Sales               Total sales value under the selected filters
-  ⭐ Average Rating            Average rating across the selected records
-  🏪 Total Outlets             Number of distinct outlets
-  🛍️ Total Items               Item count according to the report's measure
-  🗂️ Total Categories          Number of distinct item categories
-  👁️ Average Item Visibility   Average item visibility value
-  ⚖️ Average Item Weight       Average item weight
+**Key Visualizations:**
+- Sales by Outlet Establishment Year
+- Average Rating by Outlet Type
+- Top Outlets by Total Sales
+- Outlet Performance Summary Table
 
-*Values can change when slicers are applied.*
+**Metrics Analyzed:**
+- Average Rating
+- Average Sales
+- Total Sales
+- Total Items
+- Average Visibility
+
+---
 
 ## 🗂️ Dataset
 
-The project folder contains two dataset files:
+This project contains the following dataset files:
 
--   `BlinkIT-Grocery-Data_Clean.xlsx` --- cleaned dataset
--   `BlinkIT-Grocery-Data_Raw.csv` --- raw dataset
+- `BlinkIT-Grocery-Data_Clean.xlsx` — Cleaned grocery sales dataset
+- `BlinkIT-Grocery-Data_Raw.csv` — Raw grocery sales dataset
 
-The report uses fields related to item type, item weight, item
-visibility, fat content, sales, ratings, outlet identifier, outlet
-establishment year, outlet size, location tier, and outlet type. Exact
-field names may differ in the Power BI model.
+The report analyzes fields related to:
+
+| Field | Description |
+|---|---|
+| Item Type | Product category |
+| Item Weight | Product weight |
+| Item Visibility | Product visibility value |
+| Fat Content | Product fat-content classification |
+| Sales | Sales value |
+| Rating | Rating field used in the report |
+| Outlet Identifier | Unique outlet identifier |
+| Outlet Establishment Year | Year the outlet was established |
+| Outlet Size | Outlet size category |
+| Outlet Location Type | Outlet location classification |
+| Outlet Type | Outlet format or type |
+
+*Use the actual column names from the Power BI data model if they differ from these labels.*
+
+---
 
 ## 📐 DAX Measures
 
-The following are example measures based on the fields used in the
-dashboard. Replace `BlinkIT` with the exact table name in your Power BI
-model if needed.
+The following DAX examples illustrate the calculations used for the dashboard. Replace `BlinkIT` with the actual table name in your Power BI model if necessary.
 
 ### 💰 Total Sales
 
-``` dax
+```dax
 Total Sales =
 SUM ( BlinkIT[Sales] )
 ```
 
 ### ⭐ Average Rating
 
-``` dax
+```dax
 AVG RATING =
 AVERAGE ( BlinkIT[Rating] )
 ```
 
 ### 🏪 Total Outlets
 
-``` dax
+```dax
 TOTAL OUTLETS =
 DISTINCTCOUNT ( BlinkIT[Outlet Identifier] )
 ```
 
 ### 🛍️ Total Items
 
-If the measure is intended to count rows:
+If the measure is intended to count dataset rows:
 
-``` dax
+```dax
 TOTAL ITEMS =
 COUNTROWS ( BlinkIT )
 ```
 
+If you want to count unique products, use `DISTINCTCOUNT` on the appropriate product identifier or product-name column.
+
 ### 🗂️ Total Categories
 
-``` dax
+```dax
 TOTAL CATEGORIES =
 DISTINCTCOUNT ( BlinkIT[Item Type] )
 ```
 
 ### 👁️ Average Visibility
 
-``` dax
+```dax
 AVG VISIBILITY =
 AVERAGE ( BlinkIT[Item Visibility] )
 ```
 
 ### ⚖️ Average Item Weight
 
-``` dax
+```dax
 AVG ITEM WEIGHT =
 AVERAGE ( BlinkIT[Item Weight] )
 ```
 
 ### 💵 Average Sales
 
-``` dax
+```dax
 AVG SALES =
 AVERAGE ( BlinkIT[Sales] )
 ```
 
-**Note:** Confirm the exact table and column names in your Power BI
-model before using these examples. The correct definition of
-`TOTAL ITEMS` depends on whether you want to count rows or unique
-products.
+**Important:** These are example formulas. Verify the table name, column names, and intended calculation before using them in your report.
 
-## 🎨 Dashboard Design
+---
 
-The dashboard uses a Blinkit-inspired yellow, cream, olive, and charcoal
-palette.
+## 🎨 Dashboard Design & Color Palette
 
-  Element                   Color
-  ------------------------- -----------
-  Primary yellow            `#FCE006`
-  Cream background          `#F5F0D1`
-  Chart/card background     `#FFFDF5`
-  Charcoal text / sidebar   `#29291F`
-  Olive accent              `#77752B`
-  Muted gold                `#B7AD64`
-  Borders / gridlines       `#E8E2C9`
+The dashboard follows a Blinkit-inspired visual theme using yellow, cream, olive, and charcoal colors.
 
-Yellow highlights important KPIs and active navigation. Cream and
-off-white provide contrast, while charcoal and olive support readable
-labels and secondary chart elements.
+| Element | Hex Code |
+|---|---|
+| Primary Yellow | `#FCE006` |
+| Cream Background | `#F5F0D1` |
+| Card Background | `#FFFDF5` |
+| Charcoal Text / Sidebar | `#29291F` |
+| Olive Accent | `#77752B` |
+| Muted Gold | `#B7AD64` |
+| Borders / Gridlines | `#E8E2C9` |
 
-## 📊 Visualizations
+**Design Principles:**
+- Yellow highlights important KPIs and active navigation.
+- Cream and off-white backgrounds maintain readability.
+- Charcoal provides strong text contrast.
+- Olive and muted gold create visual consistency across charts.
+- Consistent formatting is applied across all three dashboard pages.
 
--   **KPI cards:** Sales, rating, outlets, items, and categories
--   **Line chart:** Sales by outlet establishment year
--   **Bar / column charts:** Sales by outlet type, item category, outlet
-    size, and outlet identifier
--   **Donut charts:** Sales distribution by location tier and fat
-    content
--   **Scatter plots:** Sales versus item visibility and rating
--   **Table / matrix:** Outlet-level performance comparison
--   **Slicers:** Year/date, outlet type, location tier, outlet size, and
-    fat content
+---
 
-## 🔄 Analytics Workflow
+## 📊 Visualizations Used
 
-1.  Load the raw grocery dataset.
-2.  Review and clean data in Power Query / Excel.
-3.  Check column names and data types.
-4.  Create DAX measures for sales, ratings, outlets, items, and
-    categories.
-5.  Build KPI cards and interactive visuals.
-6.  Apply consistent styling across all three pages.
-7.  Test slicers and cross-filtering.
-8.  Validate totals and labels before publishing.
+- **KPI Cards:** Total Sales, Average Rating, Total Outlets, Total Items, and Total Categories
+- **Line / Area Charts:** Sales trends by outlet establishment year
+- **Bar Charts:** Sales by item category and outlet identifier
+- **Column Charts:** Sales or ratings by outlet type and outlet size
+- **Donut Charts:** Sales distribution by location tier and fat content
+- **Scatter Charts:** Sales vs. item visibility and rating
+- **Tables / Matrices:** Outlet-level performance comparison
+- **Slicers:** Year / Date, Outlet Type, Location Tier, Outlet Size, and Fat Content
 
-## 💡 Analysis Opportunities
+---
 
--   **Sales performance:** Compare sales across outlet types, sizes, and
-    establishment years.
--   **Product categories:** Identify categories with higher and lower
-    sales.
--   **Outlet comparison:** Compare outlets by sales, ratings, and item
-    counts.
--   **Rating patterns:** Review ratings by outlet type and compare
-    ratings with sales.
--   **Product visibility:** Explore the relationship between item
-    visibility and sales.
--   **Location distribution:** Compare sales across location tiers.
--   **Fat content:** Compare sales distribution between fat-content
-    groups.
+## 🔄 Project Workflow
 
-These are analysis opportunities supported by the report. Conclusions
-should be drawn from the actual data and selected filters.
+1. Load the raw grocery sales dataset.
+2. Review and clean the data using Excel or Power Query.
+3. Verify column names and data types.
+4. Create DAX measures for KPIs and sales analysis.
+5. Build interactive charts, tables, and KPI cards.
+6. Apply a consistent Blinkit-inspired color theme.
+7. Configure slicers and cross-filtering.
+8. Validate totals, labels, and calculations.
+9. Save the final Power BI report.
+
+---
+
+## 💡 Business Analysis Opportunities
+
+### Sales Performance
+Compare sales across outlet types, outlet sizes, and establishment years.
+
+### Product Category Analysis
+Identify product categories with higher and lower sales contributions.
+
+### Outlet Performance
+Compare outlets using total sales, average sales, ratings, and item counts.
+
+### Rating Analysis
+Explore rating patterns across outlet types and compare ratings with sales.
+
+### Item Visibility Analysis
+Investigate the relationship between product visibility and sales.
+
+### Location Tier Analysis
+Compare sales distribution across different outlet location tiers.
+
+### Fat Content Analysis
+Explore sales distribution between fat-content groups.
+
+*These are analysis opportunities. Actual conclusions should be based on the data and selected filters.*
+
+---
 
 ## 🛠️ Tech Stack
 
-  Area                        Technology
-  --------------------------- --------------------
-  Data visualization          Microsoft Power BI
-  Data transformation         Power Query
-  Measures and calculations   DAX
-  Data preparation            Excel / CSV
-  Dashboard design            Power BI
+| Technology | Purpose |
+|---|---|
+| Microsoft Power BI | Dashboard development and visualization |
+| DAX | Measures and KPI calculations |
+| Power Query | Data transformation and preparation |
+| Microsoft Excel | Dataset preparation |
+| CSV | Raw dataset format |
+
+---
 
 ## 📚 Skills Demonstrated
 
--   Power BI report development
--   DAX measure creation
--   Data cleaning and transformation
--   KPI design
--   Data visualization
--   Sales and outlet performance analysis
--   Interactive slicers and cross-filtering
--   Dashboard design and visual consistency
--   Business-focused data storytelling
+- Power BI Dashboard Development
+- DAX Measure Creation
+- Data Cleaning and Transformation
+- KPI Design
+- Data Visualization
+- Sales and Outlet Performance Analysis
+- Interactive Slicers and Cross-Filtering
+- Dashboard Layout and Visual Consistency
+- Business Intelligence
+- Data Storytelling
+
+---
 
 ## 📁 Project Structure
 
-``` text
+```text
 Blinkit-Sales-Operations-Dashboard/
 │
 ├── Datasets/
 │   ├── BlinkIT-Grocery-Data_Clean.xlsx
 │   └── BlinkIT-Grocery-Data_Raw.csv
+│
+├── Documentation/
+│   └── Blinkit_Sales_Operations_Dashboard_Documentation.pdf
 │
 ├── Images/
 │   ├── Delivery.png
@@ -273,9 +324,9 @@ Blinkit-Sales-Operations-Dashboard/
 └── README.md
 ```
 
-## 📸 Dashboard Preview
+---
 
-The following screenshots are included in the `Screenshots/` folder.
+## 📸 Dashboard Preview
 
 ### 🏠 Overview
 
@@ -283,42 +334,59 @@ The following screenshots are included in the `Screenshots/` folder.
 
 ### 🛍️ Product & Outlet Analysis
 
-![Product & Outlet
-Analysis](Screenshots/Product%20%26%20Outlet%20Analysis.png)
+![Product & Outlet Analysis](Screenshots/Product%20%26%20Outlet%20Analysis.png)
 
 ### 🏪 Outlet Performance
 
 ![Outlet Performance](Screenshots/Outlet%20Performance.png)
 
+---
+
+## 📄 Project Documentation
+
+Detailed project documentation is available in the `Documentation` folder.
+
+**[📥 View Project Documentation (PDF)](Documentation/Blinkit_Sales_Operations_Dashboard_Documentation.pdf)**
+
+The documentation covers:
+- Project overview and objectives
+- Dashboard pages and visualizations
+- KPI definitions
+- Example DAX measures
+- Design and color palette
+- Project structure
+- Quality checks and usage instructions
+
+---
+
 ## 🚀 How to Use
 
-1.  Download or clone this repository.
-2.  Open `Blinkit_Analysis.pbix` in Microsoft Power BI Desktop.
-3.  If prompted, update the data-source path to the dataset location on
-    your computer.
-4.  Refresh the report and interact with the slicers and visuals.
+1. Clone or download this repository.
+2. Open `Blinkit_Analysis.pbix` in Microsoft Power BI Desktop.
+3. If prompted, update the data-source path to the dataset location on your computer.
+4. Refresh the report.
+5. Explore the three dashboard pages using the interactive slicers and visuals.
+
+---
 
 ## 🎯 Project Outcome
 
-This project demonstrates how a grocery sales dataset can be transformed
-into an interactive Power BI report for exploring sales, product
-categories, ratings, and outlet performance. It showcases practical
-dashboard development, DAX calculations, and business-oriented visual
-storytelling.
+This project demonstrates how grocery sales data can be transformed into an interactive Power BI dashboard for analyzing sales performance, product categories, ratings, and outlet operations.
+
+It showcases practical skills in data preparation, DAX calculations, KPI development, data visualization, and business-focused reporting.
+
+---
 
 ## 👩‍💻 Author
 
-**Chanchal Khandkure**\
+**Chanchal Khandkure**
+
 Aspiring Data Analyst
 
-**Skills:** Power BI • SQL • Python • Excel • Data Analysis • Data
-Visualization
+**Skills:** Power BI • SQL • Python • Excel • DAX • Data Analysis • Data Visualization
 
--   GitHub: [Chanchal2011](https://github.com/Chanchal2011)
--   LinkedIn: [Chanchal
-    Khandkure](https://www.linkedin.com/in/chanchal-khandkure)
+- GitHub: [Chanchal2011](https://github.com/Chanchal2011)
 
-------------------------------------------------------------------------
+---
 
-⭐ If you find this project useful, feel free to explore the report and
-share feedback.
+⭐ If you find this project useful, feel free to explore the dashboard and share feedback.
